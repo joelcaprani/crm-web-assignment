@@ -2,11 +2,13 @@ require 'sinatra'
 
 require_relative 'contact'
 
-# Fake data
-Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
-Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
-Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
-
+post '/contacts' do
+  Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+  redirect to('/contacts')
+end
+# Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
+# Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
+# Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
 
 @crm_app_name = "Joel's CRM"
 get '/' do
@@ -26,7 +28,9 @@ end
 get '/contacts/new' do
   erb :new_contact
 end
-
+post '/contacts' do
+  puts params
+end
 
 
 # Implement the new web-based CRM here.
