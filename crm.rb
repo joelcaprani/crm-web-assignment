@@ -1,5 +1,6 @@
 require 'sinatra'
 
+@crm_app_name = "Bitmaker's CRM"
 get '/' do
   erb :index
 end
