@@ -1,4 +1,4 @@
-require "pry"
+require 'sinatra'
 class Contact
   attr_accessor :first_name, :last_name, :email, :note
   attr_reader :id

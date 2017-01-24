@@ -1,14 +1,19 @@
-require_relative 'contact'
 require 'sinatra'
+
+require_relative 'contact'
+
+# Fake data
+Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
+Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
+Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
+
 
 @crm_app_name = "Joel's CRM"
 get '/' do
   erb :index
 end
 
-get '/contacts' do
-  erb :contacts
-end
+
 
 # Implement the new web-based CRM here.
 # Do NOT copy the CRM class from the old crm assignment, as it won't work at all for the web-based version!
