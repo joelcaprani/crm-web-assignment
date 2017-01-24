@@ -1,8 +1,13 @@
+require_relative 'contact'
 require 'sinatra'
 
-@crm_app_name = "Bitmaker's CRM"
+@crm_app_name = "Joel's CRM"
 get '/' do
   erb :index
+end
+
+get '/contacts' do
+  erb :contacts
 end
 
 # Implement the new web-based CRM here.
