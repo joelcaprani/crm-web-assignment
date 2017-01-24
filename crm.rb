@@ -15,6 +15,20 @@ end
 
 
 
+get '/' do
+  erb :index
+end
+
+get '/contacts' do
+  erb :contacts
+end
+
+get '/contacts/new' do
+  erb :new_contact
+end
+
+
+
 # Implement the new web-based CRM here.
 # Do NOT copy the CRM class from the old crm assignment, as it won't work at all for the web-based version!
 # You'll have to implement it from scratch.
