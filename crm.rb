@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  'Main Menu'
+  erb :index
 end
 
 # Implement the new web-based CRM here.
