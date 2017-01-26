@@ -1,0 +1,44 @@
+h1 {
+  display: block;
+  font-size: 30px;
+  text-align: center;
+  background-color: black;
+  color : white;
+  width:100%;
+  padding: 0px;
+}
+
+.links{
+  display: block;
+  padding: 0px;
+  font-size: 25px;
+}
+
+li{
+  display: block;
+  color: black;
+  list-style: none;
+  background-color: turquoise;
+  margin-bottom: 0px;
+  padding: 0px;
+  font-weight: bold;
+}
+
+ul{
+  list-style: none;
+  text-align: center;
+  -webkit-padding-start: 0px;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+p{
+  background-color: salmon;
+  padding: 0px;
+  text-align: left;
+  font-size: 30px;
+}

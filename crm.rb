@@ -1,38 +1,36 @@
 require 'sinatra'
-
 require_relative 'contact'
 
-post '/contacts' do
-  Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
-  redirect to('/contacts')
-end
-# Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
-# Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
-# Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
 
-@crm_app_name = "Joel's CRM"
-get '/' do
-  erb :index
-end
+Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
+Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
+Contact.create('Steve', 'Jobs', 'steve@microsoft.com', 'Visionary')
+Contact.create('Bill', 'Gates', 'bill@apple.com', 'crazy man')
+Contact.create('Marshall', 'Mathers', 'm&m@apple.com', 'rapper')
 
 
 
 get '/' do
+  @crm_app_name = "CRM"
   erb :index
 end
+
 
 get '/contacts' do
+  @contact_name = 'contacts'
   erb :contacts
 end
 
 get '/contacts/new' do
   erb :new_contact
 end
+
 post '/contacts' do
-  puts params
+Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+redirect to ('/')
 end
 
-
-# Implement the new web-based CRM here.
-# Do NOT copy the CRM class from the old crm assignment, as it won't work at all for the web-based version!
-# You'll have to implement it from scratch.
+get '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
+  erb :show_contact
+end
