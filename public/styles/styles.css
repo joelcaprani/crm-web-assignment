@@ -42,3 +42,8 @@ p{
   text-align: left;
   font-size: 30px;
 }
+
+form   {
+    background: green;
+    padding: 10px;
+}
