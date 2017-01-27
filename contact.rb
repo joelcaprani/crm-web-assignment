@@ -47,7 +47,7 @@ class Contact
   # and return the contact who has that id
   def self.find(id)
     @@contacts.find { |contact| contact.id == id }
-    
+
   end
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
@@ -93,7 +93,7 @@ class Contact
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
-    @@contacts.delete(self)
+   @@contacts.delete_if { |contact| contact.id == self.id }
   end
 
   # Feel free to add other methods here, if you need them.

@@ -2,7 +2,7 @@
   There are <%= Contact.all.count %> contacts
 </p>
 <ul class="people">
-  <% Contact.all.each do |contact| %>
+ <% Contact.all.each do |contact| %> 
   <li> <%= contact.first_name %> <%= contact.last_name %> ( <%= contact.email %> )
 <ul>
   <li><a href="/contacts/<%=contact.id%>/edit">EDIT</a>

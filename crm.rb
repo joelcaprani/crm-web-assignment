@@ -1,7 +1,7 @@
 require 'sinatra'
 require_relative 'contact'
 
-Contact.create('Betty', 'Maker', 'betty@bitmakerlabs.com', 'Developer')
+Contact.create('Joel', 'Caprani', 'joel@joel.com', 'Nice guy')
 Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
 Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
 Contact.create('Steve', 'Jobs', 'steve@microsoft.com', 'Visionary')
@@ -35,7 +35,7 @@ end
 
 post '/contacts' do
 Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
-redirect to ('/')
+redirect to ('/contacts')
 end
 
 get '/contacts/:id' do
@@ -46,7 +46,6 @@ get '/contacts/:id' do
     raise Sinatra::NotFound
   end
 end
-
 
 get '/contacts/:id/edit' do
   @contact = Contact.find(params[:id].to_i)
@@ -65,6 +64,16 @@ put '/contacts/:id' do
     @contact.email = params[:email]
     @contact.note = params[:note]
 
+    redirect to('/contacts')
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+delete '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
+  if @contact
+    @contact.delete
     redirect to('/contacts')
   else
     raise Sinatra::NotFound
