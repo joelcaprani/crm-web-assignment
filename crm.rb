@@ -1,6 +1,9 @@
 require 'sinatra'
 require_relative 'contact'
 
+## Temporary fake data so that we always find contact with id 1.
+Contact.create('Betty', 'Maker', 'betty@bitmakerlabs.com', 'Developer')
+
 
 Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
 Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
@@ -32,5 +35,10 @@ end
 
 get '/contacts/:id' do
   @contact = Contact.find(params[:id].to_i)
+  erb :show_contact
+end
+
+get '/contacts/1' do
+  @contact = Contact.find(1)
   erb :show_contact
 end
